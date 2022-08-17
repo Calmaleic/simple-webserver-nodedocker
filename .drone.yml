@@ -1,15 +1,14 @@
 kind: pipeline
 type: docker
-name: npm-website
+name: test
 
 steps:
-- name: build
+- name: test
   image: node:latest
   commands:
   - npm install express
   - npm install
   - npm test
-  - drone promote build
 
 trigger:
   event:
