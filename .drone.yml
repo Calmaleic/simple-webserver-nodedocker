@@ -5,6 +5,7 @@ name: npm-webserver-docker
 steps:
 - name: npm-webserver-docker
   image: node:latest
+  ports: [ 6210 ]
   commands:
   - npm install express
   - npm install
