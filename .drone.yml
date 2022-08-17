@@ -1,12 +1,30 @@
 kind: pipeline
 type: docker
-name: npm-webserver-docker
+name: build
 
 steps:
-- name: npm-webserver-docker
+- name: drone-build
+  image: node:latest
+  commands:
+  - npm install express
+  - npm install
+  - npm test
+
+---
+kind: pipeline
+type: docker
+name: deploy
+
+steps:
+- name: drone-deploy
   image: node:latest
   commands:
   - npm install express
   - npm install
   - npm start
-  
+
+trigger:
+  event:
+  - promote
+  target:
+  - production
