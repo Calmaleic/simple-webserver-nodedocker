@@ -1,0 +1,22 @@
+version: "3"
+
+networks:
+  npm_default:
+    external: true
+  npm-default-webserver-network:
+    external: false
+    name: npm-default-webserver-network
+
+services:
+  npm-default-webserver:
+    image: node-docker
+    container_name: npm-default-webserver
+    restart: "unless-stopped"
+    user: "node"
+    ports:
+      - "6211:8080"
+    volumes:
+      - ./:/app
+    networks:
+      - npm_default
+      - npm-default-webserver-network
