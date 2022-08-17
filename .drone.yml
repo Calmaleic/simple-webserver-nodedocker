@@ -4,7 +4,8 @@ name: npm-webserver-docker
 
 steps:
 - name: npm-webserver-docker
-  image: node-default-webserver
+  image: node:latest
   commands:
   - npm install
   - npm start
+  
