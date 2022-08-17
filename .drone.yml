@@ -1,0 +1,10 @@
+kind: pipeline
+type: docker
+name: npm-webserver-docker
+
+steps:
+- name: npm-webserver-docker
+  image: node-default-webserver
+  commands:
+  - npm install
+  - npm start
