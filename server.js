@@ -7,5 +7,5 @@ const host = "0.0.0.0";
 
 app.use(express.static(__dirname + '/public'));
 
-app.listen(port, host);
+//app.listen(port, host);
 console.log(`Listening on port ${port}`);
